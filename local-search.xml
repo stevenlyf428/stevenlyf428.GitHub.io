@@ -56,11 +56,11 @@
   
   
   <entry>
-    <title>关于prompt</title>
-    <link href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/"/>
-    <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
+    <title>关于OWA</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EOWA/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8EOWA/</url>
     
-    <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="关于owa的学术定义">关于OWA的学术定义</h3><p>CWA：KG是固定的，新实体不容易被添加</p><p>OWA：model learns <strong>embeddings</strong> of <strong>the entity’s name</strong> and <strong>parts of its text-description</strong> to connect unseen entities to the KG.</p><h3 id="数据集和实验">数据集和实验</h3>]]></content>
     
     
     
@@ -69,11 +69,11 @@
   
   
   <entry>
-    <title>关于OWA</title>
-    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EOWA/"/>
-    <url>/2023/09/03/%E5%85%B3%E4%BA%8EOWA/</url>
+    <title>关于prompt</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
     
-    <content type="html"><![CDATA[<h3 id="关于owa的学术定义">关于OWA的学术定义</h3><p>CWA：KG是固定的，新实体不容易被添加</p><p>OWA：model learns <strong>embeddings</strong> of <strong>the entity’s name</strong> and <strong>parts of its text-description</strong> to connect unseen entities to the KG.</p><h3 id="数据集和实验">数据集和实验</h3>]]></content>
+    <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p>]]></content>
     
     
     
