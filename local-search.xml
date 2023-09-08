@@ -30,32 +30,6 @@
   
   
   <entry>
-    <title>论文TAGEAL</title>
-    <link href="/2023/09/03/TAGREAL/"/>
-    <url>/2023/09/03/TAGREAL/</url>
-    
-    <content type="html"><![CDATA[<h3 id="text-augmented-open-knowledge-graph-completion-via-pre-trained-language-models">Text-Augmented Open Knowledge Graph Completion via Pre-Trained Language Models</h3><blockquote><p>阅读感想：</p><p>不需要handcrafted prompts和pre-defined relevant facts</p></blockquote><p>知识图谱和预训练模型是有联系的</p><p>Kg---三元组，h+r+t,(h,r,?)</p><p>PLM---prompt[mask]</p><blockquote><p>与PKGC相比，获取prompt的方式变了（）</p><p>在CPL相比，主体跟着（推理+外部支持语料）</p><p><a href="https://blog.csdn.net/weixin_52953225/article/details/131456764">LLM+KGs综述：Unifying Large Language Models and Knowledeg Graphs: A Roadmap</a></p></blockquote><p><a href="https://pat-jj.github.io/">Pengcheng Jiang</a></p><p>前置论文：</p><p><strong>2019. Collaborative Policy Learning for Open Knowledge Graph Reasoning</strong></p><p>辅助论文：</p><p><strong>2020. How can we know what language models know?</strong></p><p>textual pattern mining是出现在PLM之前的信息提取技术</p><p><strong>2017. MetaPAD: Meta pattern discovery from massive text corpora</strong></p><p><strong>2018. TruePIE: Discovering reliable patterns in pattern-based information extraction</strong></p><p>OWA论文：</p><p><strong>2018.Open-world knowledge graph completion. In Proceedings of the AAAI</strong></p><p>想法💡：</p><ul><li>PLM的知识来源于prompt的质量；</li><li>we are pioneers in using ==textual pattern mining== methods for ==LM prompt mining==.</li></ul><p>解释了一下原因：（语料来源相同，任务目标一致）</p><ul><li>Sub-copora mining：<ul><li><p><strong>如何收集句子从语料库中？</strong></p></li><li><p>use Wikipedia with 6,458,670 document examples as the general corpus and NYT10/PubMed as the reliable sources,</p></li><li><p>we mine 500 sentences at maximum (θ = 500) for each tuple</p></li></ul></li><li>Phrase segmentation and frequent pattern mining：<ul><li>AutoPhrase (Shang et al., 2018)<ul><li>分割语句。segment corpora to more natural and unambiguous semantic phrases</li></ul></li><li>FP-Growth algorithm (Han et al., 2000)<ul><li>挖掘频繁项</li></ul></li></ul></li><li>Prompt selection：<ul><li>文本挖掘方法</li><li>MetaPAD (Jiang et al., 2017)<ul><li>applies pattern quality function introducing several criteria of contextual features to estimate the reliability of a pattern.</li></ul></li><li>and TruePIE (Li et al., 2018)<ul><li>filters the prompts that have low cosine ′ similarity with the positive samples (e.g., p 3 and ′ p m−1are filtered)</li></ul></li></ul></li><li>Support Information Retrieval<ul><li>BM25<ul><li>计算query和文章相关度的相似度</li><li>一般用tf-idf计算相关度</li></ul></li></ul></li></ul><p>数据集：</p><p>FB60K-NYT10</p><ul><li>LUKE (Yamada et al., 2020), a PLM pre-trained on more Wikipedia data with RoBERTa</li></ul><p>UMLS-PubMed</p><ul><li>SapBert (Liu et al., 2021) that pretrained on both UMLS and PubMed with BERT (Devlin et al., 2019).</li></ul><p>FB60K and UMLS are knowledge graphs and NYT10 and PubMed are corpora</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>关于ACL23KG</title>
-    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/"/>
-    <url>/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/</url>
-    
-    <content type="html"><![CDATA[<p>【1】Are Message Passing Neural Networks Really Helpful for Knowledge Graph Completion?</p><p>消息传递模块并不重要，损失函数和得分函数是至关重要的</p><p>【】GreenKGC: A Lightweight Knowledge Graph Completion Method</p><p>相关性一般，研究低纬度的知识图谱补全</p><p>【】Compounding Geometric Operations for Knowledge Graph Completion</p><p>pairRE升级版</p><p>【】To Copy Rather Than Memorize: A Vertical Learning Paradigm for Knowledge Graph Completion</p><p>self-adv升级</p><p><strong>Finding</strong></p><p>【】Contrastive Learning with Generated Representations for Inductive Knowledge Graph Embedding</p><p>好复杂，OWA相关</p><p>【】Dipping PLMs Sauce: Bridging Structure and Text for Effective Knowledge Graph Completion via Conditional Soft Prompting</p><p>相关性高，不错不错，从文本和结构上面描述</p><p><strong>short</strong></p><h4 id="section"></h4>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>关于OWA</title>
     <link href="/2023/09/03/%E5%85%B3%E4%BA%8EOWA/"/>
     <url>/2023/09/03/%E5%85%B3%E4%BA%8EOWA/</url>
@@ -74,6 +48,32 @@
     <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
     
     <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>论文TAGEAL</title>
+    <link href="/2023/09/03/TAGREAL/"/>
+    <url>/2023/09/03/TAGREAL/</url>
+    
+    <content type="html"><![CDATA[<h3 id="text-augmented-open-knowledge-graph-completion-via-pre-trained-language-models">Text-Augmented Open Knowledge Graph Completion via Pre-Trained Language Models</h3><blockquote><p>阅读感想：</p><p>不需要handcrafted prompts和pre-defined relevant facts</p></blockquote><p>知识图谱和预训练模型是有联系的</p><p>Kg---三元组，h+r+t,(h,r,?)</p><p>PLM---prompt[mask]</p><blockquote><p>与PKGC相比，获取prompt的方式变了（）</p><p>在CPL相比，主体跟着（推理+外部支持语料）</p><p><a href="https://blog.csdn.net/weixin_52953225/article/details/131456764">LLM+KGs综述：Unifying Large Language Models and Knowledeg Graphs: A Roadmap</a></p></blockquote><p><a href="https://pat-jj.github.io/">Pengcheng Jiang</a></p><p>前置论文：</p><p><strong>2019. Collaborative Policy Learning for Open Knowledge Graph Reasoning</strong></p><p>辅助论文：</p><p><strong>2020. How can we know what language models know?</strong></p><p>textual pattern mining是出现在PLM之前的信息提取技术</p><p><strong>2017. MetaPAD: Meta pattern discovery from massive text corpora</strong></p><p><strong>2018. TruePIE: Discovering reliable patterns in pattern-based information extraction</strong></p><p>OWA论文：</p><p><strong>2018.Open-world knowledge graph completion. In Proceedings of the AAAI</strong></p><p>想法💡：</p><ul><li>PLM的知识来源于prompt的质量；</li><li>we are pioneers in using ==textual pattern mining== methods for ==LM prompt mining==.</li></ul><p>解释了一下原因：（语料来源相同，任务目标一致）</p><ul><li>Sub-copora mining：<ul><li><p><strong>如何收集句子从语料库中？</strong></p></li><li><p>use Wikipedia with 6,458,670 document examples as the general corpus and NYT10/PubMed as the reliable sources,</p></li><li><p>we mine 500 sentences at maximum (θ = 500) for each tuple</p></li></ul></li><li>Phrase segmentation and frequent pattern mining：<ul><li>AutoPhrase (Shang et al., 2018)<ul><li>分割语句。segment corpora to more natural and unambiguous semantic phrases</li></ul></li><li>FP-Growth algorithm (Han et al., 2000)<ul><li>挖掘频繁项</li></ul></li></ul></li><li>Prompt selection：<ul><li>文本挖掘方法</li><li>MetaPAD (Jiang et al., 2017)<ul><li>applies pattern quality function introducing several criteria of contextual features to estimate the reliability of a pattern.</li></ul></li><li>and TruePIE (Li et al., 2018)<ul><li>filters the prompts that have low cosine ′ similarity with the positive samples (e.g., p 3 and ′ p m−1are filtered)</li></ul></li></ul></li><li>Support Information Retrieval<ul><li>BM25<ul><li>计算query和文章相关度的相似度</li><li>一般用tf-idf计算相关度</li></ul></li></ul></li></ul><p>数据集：</p><p>FB60K-NYT10</p><ul><li>LUKE (Yamada et al., 2020), a PLM pre-trained on more Wikipedia data with RoBERTa</li></ul><p>UMLS-PubMed</p><ul><li>SapBert (Liu et al., 2021) that pretrained on both UMLS and PubMed with BERT (Devlin et al., 2019).</li></ul><p>FB60K and UMLS are knowledge graphs and NYT10 and PubMed are corpora</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于ACL23KG</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/</url>
+    
+    <content type="html"><![CDATA[<p>【1】Are Message Passing Neural Networks Really Helpful for Knowledge Graph Completion?</p><p>消息传递模块并不重要，损失函数和得分函数是至关重要的</p><p>【】GreenKGC: A Lightweight Knowledge Graph Completion Method</p><p>相关性一般，研究低纬度的知识图谱补全</p><p>【】Compounding Geometric Operations for Knowledge Graph Completion</p><p>pairRE升级版</p><p>【】To Copy Rather Than Memorize: A Vertical Learning Paradigm for Knowledge Graph Completion</p><p>self-adv升级</p><p><strong>Finding</strong></p><p>【】Contrastive Learning with Generated Representations for Inductive Knowledge Graph Embedding</p><p>好复杂，OWA相关</p><p>【】Dipping PLMs Sauce: Bridging Structure and Text for Effective Knowledge Graph Completion via Conditional Soft Prompting</p><p>相关性高，不错不错，从文本和结构上面描述</p><p><strong>short</strong></p><h4 id="section"></h4>]]></content>
     
     
     
