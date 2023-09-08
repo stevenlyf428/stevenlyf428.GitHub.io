@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/xiaohei.jpg">
+  <link rel="icon" href="/img/xiaohei.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="stevenlyf">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2021年终总结 科研总结 回想起，最初开始有计划的学习NLP，还是在考研复试期间，花了一周多时间速看了一本《自然语言处理实战》，当时对word2vec，注意力机制等留下了深刻的印象。 之后的暑假，顺利来到实验室学习，7和8两月份认真看完了吴恩达深度学习和CS224（《深度学习中的自然语言处理》）并做了大量笔记。学习了深度学习和自然语言处理的相关基础知识，相对来说算是打下了比较牢的基础。 9月开学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021年终总结">
+<meta property="og:url" content="http://stevenlyf428.github.io/2022/01/03/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="LYF">
+<meta property="og:description" content="2021年终总结 科研总结 回想起，最初开始有计划的学习NLP，还是在考研复试期间，花了一周多时间速看了一本《自然语言处理实战》，当时对word2vec，注意力机制等留下了深刻的印象。 之后的暑假，顺利来到实验室学习，7和8两月份认真看完了吴恩达深度学习和CS224（《深度学习中的自然语言处理》）并做了大量笔记。学习了深度学习和自然语言处理的相关基础知识，相对来说算是打下了比较牢的基础。 9月开学">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-02T18:43:11.000Z">
+<meta property="article:modified_time" content="2023-02-04T18:52:52.229Z">
+<meta property="article:author" content="stevenlyf">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2021年终总结 - LYF</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"stevenlyf428.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"30f3122a4df4bdff0713a0fe0523a0ff","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?30f3122a4df4bdff0713a0fe0523a0ff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>LYF</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2021年终总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-03 02:43" pubdate>
+          2022年1月3日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">2021年终总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="年终总结">2021年终总结</h1>
+<h2 id="科研总结">科研总结</h2>
+<p>回想起，最初开始有计划的学习NLP，还是在考研复试期间，花了一周多时间速看了一本《自然语言处理实战》，当时对word2vec，注意力机制等留下了深刻的印象。</p>
+<p>之后的暑假，顺利来到实验室学习，7和8两月份认真看完了吴恩达深度学习和CS224（《深度学习中的自然语言处理》）并做了大量笔记。学习了深度学习和自然语言处理的相关基础知识，相对来说算是打下了比较牢的基础。</p>
+<p>9月开学，由于深知要在科研上取得进展，一定要阅读前沿论文，于是选取了QA领域作为方向，阅读了2021ACL发表的最新的QA论文。一头扎进去前沿论文，过于鲁莽，虽然期间补充了很多的相关综述，相关博客进行补充，但是大多数论文看的还是似懂非懂。</p>
+<p>10月份初在和帅师兄、孝武师兄交流讨论后，觉得自己读论文的方式有很大的问题。一，<strong>论文要分门别类的读</strong>：最好找一个GitHub上已经归纳好的paper-list，选取一个大的领域内一个小方向先读，这样比较好着手；二，<strong>读论文初期要重质不重量</strong>：孝武师兄推荐我一个方法，一周只读一篇文章，翻来覆去的读，直到论文每一个细节都读懂，然后下一周再换一篇重复如此，之后读论文的速度和质量就会越来越快。</p>
+<p>及时调整了自己的方法后，发现效果显著。将论文分门别类，能够建立起大框架，从而知晓每一篇论文与其他领域的联系和区别，建立大局观。每周只读一篇论文，“<strong>慢慢来，比较快</strong>”，逐渐的我发现一篇论文可能一两天就能消化的差不多。</p>
+<p>11和12月份，在李老师布置任务后，我开始阅读KGE与规则的相关论文，涉及的领域不同，但方法不变。阅读了不少论文，学习了如何在知识图谱利用先验知识从而更好的促进深度学习。但比较遗憾的是，目前还拿不出来比较好的idea。虽然感觉这个方向的论文都大同小异，隐约觉得概率化逻辑推理和表示学习应该还是可以出成果的，但是对能力的要求还是比较高的。</p>
+<h2 id="其他方面总结">其他方面总结</h2>
+<p>10月份参加了华为杯数学建模竞赛，虽然数学建模比赛是老朋友了，但是已经1年多没参加过了，导致时间没把控好，然后又是跨校组队，交流不方便，但是好在结果还能接受吧。</p>
+<p>11月份参加了CCF百度千言语义评测竞赛，完全是第一次打NLP相关的比赛，参加的也晚，距离截止不到两周的时间。而我们直到最后几天才领悟到比赛的精髓----从数据集找特征从而提升准确率。因为不是很有经验，本以为能在B榜提交好几份结果，但其实只算最后一次提交的结果，最后导致算进成绩的并不是我觉得最理想的那次答案，最终成绩约为40/200，比较遗憾，算是提供了一次教训和经验。</p>
+<h2 id="年计划">2022年计划</h2>
+<p>1月份完成期末考后，准备趁着寒假试试2022semeval比赛，争取拿到一个好的名次。同时准备多阅读论文，争取在开学左右1-2月拿出一个比较成熟且完整的idea，在下学期期中完成实验和完成论文初稿。</p>
+<p>还有一些比较琐碎的计划（或者都不能称得上是计划）：</p>
+<ol type="1">
+<li>本学期由于个人因素，生活作息比较混乱。下一年希望能早睡早起，按时吃饭，像李威师兄和祖帅帅同学一样，定点到实验室，定点去吃饭，养成规律性。每周固定锻炼2-3次，不要生病。</li>
+<li>因为参加CCF比赛时，自己参加的晚，自己和队友普遍积极性不高，所以也并没有非常的认真去比赛。最后揭开成绩的一刻发现其实也并不是很难，因此我反思：认定做什么事一定要全力以赴，<strong>不到最后一刻不能松懈</strong>。因此来年希望自己也能在任何事上都能贯彻到。</li>
+<li>经常看到校园里有人拍拍拍，想起来开学溜达校园时，思远同学说停一下，拿起相机捕捉眼前的美景。这一下子启发到我了，曾几何时，自己也是非常喜欢拍摄，如今，手机相册的照片极其贫瘠。希望2022自己能够热爱生活，热爱当下。</li>
+<li>更成熟稳重一些。在实验室少说点话。。。（其实，只是自己觉得自己的话有点多）</li>
+</ol>
+<h2 id="最后的最后">最后的最后</h2>
+<p>回看当初刚入学时的计划，虽然还有很多提升的空间，但是好在没有背离初心。 [[回信李老师.png]]</p>
+<p>想用之前不知道在哪看到的一句话来结束2021：</p>
+<blockquote>
+<p><strong>当你老了，回顾一生，就会发觉：</strong></p>
+<p><strong>什么时候出国读书，什么时候决定做第一份职业、</strong></p>
+<p><strong>何时选定了对象而恋爱、什么时候结婚，</strong></p>
+<p><strong>其实都是命运的巨变。</strong></p>
+<p><strong>只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，</strong></p>
+<p><strong>在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。</strong></p>
+<pre><code class="hljs">                                                          ---《当时只道是寻常》</code></pre>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2021年终总结</div>
+      <div>http://stevenlyf428.github.io/2022/01/03/2021年终总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>stevenlyf</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/06/23/%E5%85%B3%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="关于线程池">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于线程池</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/18/%E8%AE%BE%E8%AE%A1%E4%BA%BA%E7%94%9F/" title="设计人生">
+                        <span class="hidden-mobile">设计人生</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"mjacavwO5etSO75sMotsnhjA-gzGzoHsz","appKey":"L3wRSiCnTQMwYfCYzRXXLkff","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

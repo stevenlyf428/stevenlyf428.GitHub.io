@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/09/07/PLM%E5%B9%BB%E8%A7%89/"/>
+    <url>/2023/09/07/PLM%E5%B9%BB%E8%A7%89/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2023/09/04/CPKGC/"/>
+    <url>/2023/09/04/CPKGC/</url>
+    
+    <content type="html"><![CDATA[<h3 id="思考">思考</h3><h4 id="从prompt说起">从prompt说起</h4><p>现有的PLM+KG，如何从PLM高效的抽取知识</p><h4 id="从图结构说起">从图结构说起</h4><p>现在有的PLM+KG重点过于关注文本信息，而忽略了图结构</p><p>方法1:直接使用</p><p>使用邻居实体的描述信息作为prompt</p><p>使用邻居实体的三元组作为prompt</p><p>方法2:挖掘</p><p>使用邻居实体的描述信息然后进行文本信息挖掘算法，挖掘出超出阈值的语句作为promt</p><p>同时添加该邻居三元组作为prompt</p><p><strong>图数据通常同时包含结构信息和节点特征信息</strong>，它们在不同的下游任务中发挥着不同的作用。<strong>例如，在社交网络中，节点特征对分类结果有很大的影响，而在蛋白质网络中，图的结构起着更重要的作用。</strong>因此，graph prompt应该同时考虑节点特征信息和结构信息，并能够自适应地转换。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>论文TAGEAL</title>
+    <link href="/2023/09/03/TAGREAL/"/>
+    <url>/2023/09/03/TAGREAL/</url>
+    
+    <content type="html"><![CDATA[<h3 id="text-augmented-open-knowledge-graph-completion-via-pre-trained-language-models">Text-Augmented Open Knowledge Graph Completion via Pre-Trained Language Models</h3><blockquote><p>阅读感想：</p><p>不需要handcrafted prompts和pre-defined relevant facts</p></blockquote><p>知识图谱和预训练模型是有联系的</p><p>Kg---三元组，h+r+t,(h,r,?)</p><p>PLM---prompt[mask]</p><blockquote><p>与PKGC相比，获取prompt的方式变了（）</p><p>在CPL相比，主体跟着（推理+外部支持语料）</p><p><a href="https://blog.csdn.net/weixin_52953225/article/details/131456764">LLM+KGs综述：Unifying Large Language Models and Knowledeg Graphs: A Roadmap</a></p></blockquote><p><a href="https://pat-jj.github.io/">Pengcheng Jiang</a></p><p>前置论文：</p><p><strong>2019. Collaborative Policy Learning for Open Knowledge Graph Reasoning</strong></p><p>辅助论文：</p><p><strong>2020. How can we know what language models know?</strong></p><p>textual pattern mining是出现在PLM之前的信息提取技术</p><p><strong>2017. MetaPAD: Meta pattern discovery from massive text corpora</strong></p><p><strong>2018. TruePIE: Discovering reliable patterns in pattern-based information extraction</strong></p><p>OWA论文：</p><p><strong>2018.Open-world knowledge graph completion. In Proceedings of the AAAI</strong></p><p>想法💡：</p><ul><li>PLM的知识来源于prompt的质量；</li><li>we are pioneers in using ==textual pattern mining== methods for ==LM prompt mining==.</li></ul><p>解释了一下原因：（语料来源相同，任务目标一致）</p><ul><li>Sub-copora mining：<ul><li><p><strong>如何收集句子从语料库中？</strong></p></li><li><p>use Wikipedia with 6,458,670 document examples as the general corpus and NYT10/PubMed as the reliable sources,</p></li><li><p>we mine 500 sentences at maximum (θ = 500) for each tuple</p></li></ul></li><li>Phrase segmentation and frequent pattern mining：<ul><li>AutoPhrase (Shang et al., 2018)<ul><li>分割语句。segment corpora to more natural and unambiguous semantic phrases</li></ul></li><li>FP-Growth algorithm (Han et al., 2000)<ul><li>挖掘频繁项</li></ul></li></ul></li><li>Prompt selection：<ul><li>文本挖掘方法</li><li>MetaPAD (Jiang et al., 2017)<ul><li>applies pattern quality function introducing several criteria of contextual features to estimate the reliability of a pattern.</li></ul></li><li>and TruePIE (Li et al., 2018)<ul><li>filters the prompts that have low cosine ′ similarity with the positive samples (e.g., p 3 and ′ p m−1are filtered)</li></ul></li></ul></li><li>Support Information Retrieval<ul><li>BM25<ul><li>计算query和文章相关度的相似度</li><li>一般用tf-idf计算相关度</li></ul></li></ul></li></ul><p>数据集：</p><p>FB60K-NYT10</p><ul><li>LUKE (Yamada et al., 2020), a PLM pre-trained on more Wikipedia data with RoBERTa</li></ul><p>UMLS-PubMed</p><ul><li>SapBert (Liu et al., 2021) that pretrained on both UMLS and PubMed with BERT (Devlin et al., 2019).</li></ul><p>FB60K and UMLS are knowledge graphs and NYT10 and PubMed are corpora</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于ACL23KG</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/</url>
+    
+    <content type="html"><![CDATA[<p>【1】Are Message Passing Neural Networks Really Helpful for Knowledge Graph Completion?</p><p>消息传递模块并不重要，损失函数和得分函数是至关重要的</p><p>【】GreenKGC: A Lightweight Knowledge Graph Completion Method</p><p>相关性一般，研究低纬度的知识图谱补全</p><p>【】Compounding Geometric Operations for Knowledge Graph Completion</p><p>pairRE升级版</p><p>【】To Copy Rather Than Memorize: A Vertical Learning Paradigm for Knowledge Graph Completion</p><p>self-adv升级</p><p><strong>Finding</strong></p><p>【】Contrastive Learning with Generated Representations for Inductive Knowledge Graph Embedding</p><p>好复杂，OWA相关</p><p>【】Dipping PLMs Sauce: Bridging Structure and Text for Effective Knowledge Graph Completion via Conditional Soft Prompting</p><p>相关性高，不错不错，从文本和结构上面描述</p><p><strong>short</strong></p><h4 id="section"></h4>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于OWA</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EOWA/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8EOWA/</url>
+    
+    <content type="html"><![CDATA[<h3 id="关于owa的学术定义">关于OWA的学术定义</h3><p>CWA：KG是固定的，新实体不容易被添加</p><p>OWA：model learns <strong>embeddings</strong> of <strong>the entity’s name</strong> and <strong>parts of its text-description</strong> to connect unseen entities to the KG.</p><h3 id="数据集和实验">数据集和实验</h3>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于prompt</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
+    
+    <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于线程池</title>
+    <link href="/2023/06/23/%E5%85%B3%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <url>/2023/06/23/%E5%85%B3%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="为什么需要线程池">为什么需要线程池</h2><p>线程池的好处：</p><ul><li>降低资源消耗。重复利用已创建的线程降低线程创建和销毁造成的消耗。</li><li>提高响应速度。提高响应速度。</li><li>提高线程的可管理性。引入线程池，可以对线程进行统一的分配和监控。</li></ul><h2 id="线程池的原理">线程池的原理</h2><ul><li>核心线程池（存储线程）</li><li>工作队列（存储任务）<img src="https://raw.githubusercontent.com/stevenlyf428/picgo-picture/main/202306231619153.png" alt="image.png" style="zoom:25%;" /></li></ul><p>当提交一个新任务到线程池中，线程处理流程分为以下三步：</p><ol type="1"><li>判断核心线程池是否已满？</li><li>判断工作队列是否已满？</li><li>判断线程池是否已满？</li></ol><p>代码实例：</p><ul><li>Execuotr和Executors</li><li>==ThreadPoolExecutor==（核心）</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-title function_">ThreadPoolExecutor</span> <span class="hljs-params">(<span class="hljs-type">int</span> corePoolSize, <span class="hljs-type">int</span> maximumPoolSize,<span class="hljs-type">long</span> keepAliveTime, //核心线程数，最大线程数，最大线程数</span><br><span class="hljs-params">TimeUnit unit, </span><br><span class="hljs-params">                           BlockingQueue&lt;Runnable&gt; workQueue,</span><br><span class="hljs-params">                           ThreadFactory threadFactory,</span><br><span class="hljs-params">                           RejectedExecutionHandler handler)</span> <span class="hljs-comment">//拒绝策略</span><br>  <span class="hljs-comment">//1、（默认）拒绝并抛出异常</span><br>  <span class="hljs-comment">//2、使用当前线程来自新任务</span><br>  <span class="hljs-comment">//3、抛弃一个队头并执行当前任务</span><br>  <span class="hljs-comment">//4、忽略并抛弃当前任务</span><br></code></pre></td></tr></table></figure><p>其中，Executors就是对ThreadPoolExector的封装，比如有FixedThreadPool 和 SingleThreadPool，但通常企业里并没有使用，因为<strong>参数设置的不合理</strong>，比如，<strong>允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM</strong>。</p><h2 id="如何合理配置线程池的参数">如何合理配置线程池的参数</h2><p>这三个参数：<strong>corePoolSize</strong> 核心线程数、<strong>maximumPoolSize</strong> 最大线程数和 <strong>workQueue</strong> 阻塞队列，就是我们在创建线程池时应该关注的重点。</p><p>一般没有正确答案，要看场景，一般这么几个分类：</p><p>按照CPU密集和IO密集来分：</p><ul><li><p>对于CPU密集型，一般核心线程数设置成 (CPU 个数 + 1) 。不过现在都是超线程技术，可以CPU*2。</p></li><li><p>对于IO密集型，一般核心线程数应该配置尽可能多的核心线程数，比如当前 CPU 个数的两倍。具体情况可以按照处理时间和io时间来计算，</p></li></ul><p>按照应用场景来分：</p><ul><li><p>线上 - 响应速度优先：可以不设置缓冲队列，调高corePoolSize和maxPoolSize快速执行任务。</p></li><li><p>线下 - 吞吐量优先：相比响应速度优先，此时更追求的是资源的利用率，在单位时间有限的资源处理更多的任务，需要设置缓冲队列和调整合适的corePoolSize。</p></li></ul><p>此外，当设置了不合理的参数，会出现以下场景，我们可以根据现象去调整参数。</p><ul><li>maximumPoolSize 设置偏小，workQueue 大小设置偏小，导致拒绝策略频繁被调用；</li><li>maximumPoolSize 设置偏小，workQueue 大小设置过大，导致很多的任务都被堆积起来，相应的，接口的响应时间就会变长；</li><li>maximumPoolSize 设置过大，导致线程上下文切换频繁发生，处理速度反而下降。</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2021年终总结</title>
+    <link href="/2022/01/03/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <url>/2022/01/03/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="年终总结">2021年终总结</h1><h2 id="科研总结">科研总结</h2><p>回想起，最初开始有计划的学习NLP，还是在考研复试期间，花了一周多时间速看了一本《自然语言处理实战》，当时对word2vec，注意力机制等留下了深刻的印象。</p><p>之后的暑假，顺利来到实验室学习，7和8两月份认真看完了吴恩达深度学习和CS224（《深度学习中的自然语言处理》）并做了大量笔记。学习了深度学习和自然语言处理的相关基础知识，相对来说算是打下了比较牢的基础。</p><p>9月开学，由于深知要在科研上取得进展，一定要阅读前沿论文，于是选取了QA领域作为方向，阅读了2021ACL发表的最新的QA论文。一头扎进去前沿论文，过于鲁莽，虽然期间补充了很多的相关综述，相关博客进行补充，但是大多数论文看的还是似懂非懂。</p><p>10月份初在和帅师兄、孝武师兄交流讨论后，觉得自己读论文的方式有很大的问题。一，<strong>论文要分门别类的读</strong>：最好找一个GitHub上已经归纳好的paper-list，选取一个大的领域内一个小方向先读，这样比较好着手；二，<strong>读论文初期要重质不重量</strong>：孝武师兄推荐我一个方法，一周只读一篇文章，翻来覆去的读，直到论文每一个细节都读懂，然后下一周再换一篇重复如此，之后读论文的速度和质量就会越来越快。</p><p>及时调整了自己的方法后，发现效果显著。将论文分门别类，能够建立起大框架，从而知晓每一篇论文与其他领域的联系和区别，建立大局观。每周只读一篇论文，“<strong>慢慢来，比较快</strong>”，逐渐的我发现一篇论文可能一两天就能消化的差不多。</p><p>11和12月份，在李老师布置任务后，我开始阅读KGE与规则的相关论文，涉及的领域不同，但方法不变。阅读了不少论文，学习了如何在知识图谱利用先验知识从而更好的促进深度学习。但比较遗憾的是，目前还拿不出来比较好的idea。虽然感觉这个方向的论文都大同小异，隐约觉得概率化逻辑推理和表示学习应该还是可以出成果的，但是对能力的要求还是比较高的。</p><h2 id="其他方面总结">其他方面总结</h2><p>10月份参加了华为杯数学建模竞赛，虽然数学建模比赛是老朋友了，但是已经1年多没参加过了，导致时间没把控好，然后又是跨校组队，交流不方便，但是好在结果还能接受吧。</p><p>11月份参加了CCF百度千言语义评测竞赛，完全是第一次打NLP相关的比赛，参加的也晚，距离截止不到两周的时间。而我们直到最后几天才领悟到比赛的精髓----从数据集找特征从而提升准确率。因为不是很有经验，本以为能在B榜提交好几份结果，但其实只算最后一次提交的结果，最后导致算进成绩的并不是我觉得最理想的那次答案，最终成绩约为40/200，比较遗憾，算是提供了一次教训和经验。</p><h2 id="年计划">2022年计划</h2><p>1月份完成期末考后，准备趁着寒假试试2022semeval比赛，争取拿到一个好的名次。同时准备多阅读论文，争取在开学左右1-2月拿出一个比较成熟且完整的idea，在下学期期中完成实验和完成论文初稿。</p><p>还有一些比较琐碎的计划（或者都不能称得上是计划）：</p><ol type="1"><li>本学期由于个人因素，生活作息比较混乱。下一年希望能早睡早起，按时吃饭，像李威师兄和祖帅帅同学一样，定点到实验室，定点去吃饭，养成规律性。每周固定锻炼2-3次，不要生病。</li><li>因为参加CCF比赛时，自己参加的晚，自己和队友普遍积极性不高，所以也并没有非常的认真去比赛。最后揭开成绩的一刻发现其实也并不是很难，因此我反思：认定做什么事一定要全力以赴，<strong>不到最后一刻不能松懈</strong>。因此来年希望自己也能在任何事上都能贯彻到。</li><li>经常看到校园里有人拍拍拍，想起来开学溜达校园时，思远同学说停一下，拿起相机捕捉眼前的美景。这一下子启发到我了，曾几何时，自己也是非常喜欢拍摄，如今，手机相册的照片极其贫瘠。希望2022自己能够热爱生活，热爱当下。</li><li>更成熟稳重一些。在实验室少说点话。。。（其实，只是自己觉得自己的话有点多）</li></ol><h2 id="最后的最后">最后的最后</h2><p>回看当初刚入学时的计划，虽然还有很多提升的空间，但是好在没有背离初心。 [[回信李老师.png]]</p><p>想用之前不知道在哪看到的一句话来结束2021：</p><blockquote><p><strong>当你老了，回顾一生，就会发觉：</strong></p><p><strong>什么时候出国读书，什么时候决定做第一份职业、</strong></p><p><strong>何时选定了对象而恋爱、什么时候结婚，</strong></p><p><strong>其实都是命运的巨变。</strong></p><p><strong>只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，</strong></p><p><strong>在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。</strong></p><pre><code class="hljs">                                                          ---《当时只道是寻常》</code></pre></blockquote>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>设计人生</title>
+    <link href="/2021/08/18/%E8%AE%BE%E8%AE%A1%E4%BA%BA%E7%94%9F/"/>
+    <url>/2021/08/18/%E8%AE%BE%E8%AE%A1%E4%BA%BA%E7%94%9F/</url>
+    
+    <content type="html"><![CDATA[<p>小盆友,你们是不是有很多问号们，总是怀疑自己，觉得自己好<strong>惨</strong>一人。 <span id="more"></span> 是不是有时候突然发现自己的人生轨迹总是莫名开错方向。</p><p>来，我来<strong>开导</strong>开导你。</p><h3 id="悲惨的开始">1、悲惨的开始</h3><p>比如我，可怜的娃子，作为双非子弟，一战心心念念的华师大。当初复习的时候极其自信，总是觉得分不在高，够用就好。于是开始复习的时间很晚，复习也是吊儿郎当的。于是，命运开始<strong>折磨</strong>我，最终连复试也没进去<del>真的差了一丢丢🤏</del>。</p><p>想死的心都有了，后悔当初不多再努力一点，后悔当初不如报个好的学校。</p><p>那个难受啊！！！</p><h3 id="假设这次十分好运">2、假设这次十分好运</h3><p>于是我在床上开始了吟唱和思考，<del>为什么会打出来吟唱</del>。</p><p>我给自己<strong>设计</strong>，假如自己高出复试线，高出2-3分，那自己是必然的十分开心，雄赳赳气昂昂的开始准备复试。</p><p>那复习起来叫做一个气吞山河，脚踢北斗。</p><h3 id="接下来呢">3、接下来呢</h3><p>悲惨的是，自己固然准备面试的还不错。</p><p>但是，我面试有点小紧张，我拿出我唯一拿的出手的美赛M奖<del>参与奖</del>。</p><p>面前的5个导师纷纷询问，你的文本是如何处理的呀？我说，将文本转换成词向量，放入贝叶斯分类器中。</p><p>哦？那你的文本向量维度过高如何处理？<del>啊啊啊没想过</del>，文本相对来说还不算高，处理起来还能接受。</p><p>你只用过机器学习的方法么，还用过别的方法的处理么？<del>我当时才大三上呀</del>，我知道可以用循环神经网络和长短期记忆网络处理可能更高，但是我没试过。<del>也用不到那种呀</del></p><p>（省略5分钟）</p><p>最后导师评价，你做的还都很浅。<del>我：放过我吧</del></p><p>最后的最后复试挂了。</p><h3 id="假设再次十分好运">4、假设再次十分好运</h3><p>好家伙，我压线进了复试，复试中又<strong>逆袭</strong>了。</p><p>我，得知消息后，和爸妈拥抱痛哭。</p><p>赶紧联系导师，发现最喜欢的<del>吴老师</del>导师没名额了了，啊啊啊啊，可是我就奔着他来的，那好吧，换个导师，大不了导师不好的话，我就出来就业，科研梦就继续成为梦吧。</p><h3 id="总结">5、总结</h3><p>我们可以接着这条路继续设想，可是我们会发现总会有一些<strong>不爽的事情</strong>发生。</p><p>比如，压线进了复试，复试被刷。</p><p>成功被录取，发现没好导师带。</p><p>有好导师带，但是自己实力不足，时常自闭。</p><p>自己成功熬到毕业，发现没能找到好工作。</p><p>等等等等，诸如此类，我们在遇到挫折面前，可以给自己设想一下去改变一下命运。 假如没有这个的困难，自己一定会更顺利么？</p><p>恐怕不是那么简单，我们总会遇到<strong>一个接着一个的困难</strong>，哪怕相比于现在的自己要更幸运。</p><h3 id="感悟">6、感悟</h3><p>还是要<strong>活在当下</strong>。</p><p>真正的勇士是要敢于直面困难。</p><p>困难无穷多也，我们遇到挫折，可以伤心难受，但是不要气馁，我们需要的是利用这次的挫折去反思，去避免以后的更多困难。</p><p>这才是真正的<strong>捷径</strong>。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>思考感悟</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
