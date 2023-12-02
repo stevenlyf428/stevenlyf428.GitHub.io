@@ -16,15 +16,15 @@
   <meta name="author" content="stevenlyf">
   <meta name="keywords" content="">
   
-    <meta name="description" content="思考 从prompt说起 现有的PLM+KG，如何从PLM高效的抽取知识 从图结构说起 现在有的PLM+KG重点过于关注文本信息，而忽略了图结构 离散的使用作为prompt  将邻居三元组选择并加上描述信息拼接作为prompt  连续的prompt  使用transformer、R-GCN、消息传递网络聚合周围信息作为prompt  方法1:直接使用 使用邻居实体的描述信息作为prompt 使用邻">
+    <meta name="description" content="1、如何进入docker容器  第一种，sudo docker attach 44fc0f0582d9 ，缺点是会窗口阻塞，不太适合生产环境 第二种，ssh，缺点是需要在docker安装ssh 第三章，1.3.X版本后，可以使用sudo docker exec -it 775c7c9ee1e1 &#x2F;bin&#x2F;bash  2、K8s的认识  是一个容器编排系统 从创建应用，应用的部署，应用提供服务，扩容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LYF">
-<meta property="og:url" content="http://stevenlyf428.github.io/2023/09/04/CPKGC/index.html">
+<meta property="og:url" content="http://stevenlyf428.github.io/2023/09/26/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8Ek8s/index.html">
 <meta property="og:site_name" content="LYF">
-<meta property="og:description" content="思考 从prompt说起 现有的PLM+KG，如何从PLM高效的抽取知识 从图结构说起 现在有的PLM+KG重点过于关注文本信息，而忽略了图结构 离散的使用作为prompt  将邻居三元组选择并加上描述信息拼接作为prompt  连续的prompt  使用transformer、R-GCN、消息传递网络聚合周围信息作为prompt  方法1:直接使用 使用邻居实体的描述信息作为prompt 使用邻">
+<meta property="og:description" content="1、如何进入docker容器  第一种，sudo docker attach 44fc0f0582d9 ，缺点是会窗口阻塞，不太适合生产环境 第二种，ssh，缺点是需要在docker安装ssh 第三章，1.3.X版本后，可以使用sudo docker exec -it 775c7c9ee1e1 &#x2F;bin&#x2F;bash  2、K8s的认识  是一个容器编排系统 从创建应用，应用的部署，应用提供服务，扩容">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-04T06:05:34.465Z">
-<meta property="article:modified_time" content="2023-09-08T09:59:43.873Z">
+<meta property="article:published_time" content="2023-09-25T16:13:59.000Z">
+<meta property="article:modified_time" content="2023-11-28T08:44:58.367Z">
 <meta property="article:author" content="stevenlyf">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-04 14:05" pubdate>
-          2023年9月4日 下午
+        <time datetime="2023-09-26 00:13" pubdate>
+          2023年9月26日 凌晨
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          396 字
+          213 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          4 分钟
+          2 分钟
         
       </span>
     
@@ -277,26 +277,18 @@
             
               <div class="markdown-body">
                 
-                <h3 id="思考">思考</h3>
-<h4 id="从prompt说起">从prompt说起</h4>
-<p>现有的PLM+KG，如何从PLM高效的抽取知识</p>
-<h4 id="从图结构说起">从图结构说起</h4>
-<p>现在有的PLM+KG重点过于关注文本信息，而忽略了图结构</p>
-<p>离散的使用作为prompt</p>
+                <p>1、如何进入docker容器</p>
 <ul>
-<li>将邻居三元组选择并加上描述信息拼接作为prompt</li>
+<li>第一种，<code>sudo docker attach 44fc0f0582d9</code> ，缺点是会窗口阻塞，不太适合生产环境</li>
+<li>第二种，ssh，缺点是需要在docker安装ssh</li>
+<li>第三章，1.3.X版本后，可以使用<code>sudo docker exec -it 775c7c9ee1e1 /bin/bash</code></li>
 </ul>
-<p>连续的prompt</p>
+<p>2、K8s的认识</p>
 <ul>
-<li>使用transformer、R-GCN、消息传递网络聚合周围信息作为prompt</li>
+<li>是一个容器编排系统</li>
+<li>从创建应用，应用的部署，应用提供服务，扩容缩容，</li>
+<li>pod才是k8s中可以创建和管理的最小单元，也是基本单元</li>
 </ul>
-<p>方法1:直接使用</p>
-<p>使用邻居实体的描述信息作为prompt</p>
-<p>使用邻居实体的三元组作为prompt</p>
-<p>方法2:挖掘</p>
-<p>使用邻居实体的描述信息然后进行文本信息挖掘算法，挖掘出超出阈值的语句作为promt</p>
-<p>同时添加该邻居三元组作为prompt</p>
-<p><strong>图数据通常同时包含结构信息和节点特征信息</strong>，它们在不同的下游任务中发挥着不同的作用。<strong>例如，在社交网络中，节点特征对分类结果有很大的影响，而在蛋白质网络中，图的结构起着更重要的作用。</strong>因此，graph prompt应该同时考虑节点特征信息和结构信息，并能够自适应地转换。</p>
 
                 
               </div>
@@ -315,7 +307,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://stevenlyf428.github.io/2023/09/04/CPKGC/</div>
+      <div>http://stevenlyf428.github.io/2023/09/26/测开项目/关于k8s/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +319,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月4日</div>
+          <div>2023年9月26日</div>
         </div>
       
       
@@ -359,18 +351,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/21/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/" title="关于ACL23KG">
-                        <span class="hidden-mobile">关于ACL23KG</span>
+                      <a href="/2023/09/21/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
