@@ -24,7 +24,7 @@
 <meta property="og:description" content="Text-Augmented Open Knowledge Graph Completion via Pre-Trained Language Models  阅读感想： 不需要handcrafted prompts和pre-defined relevant facts  知识图谱和预训练模型是有联系的 Kg---三元组，h+r+t,(h,r,?) PLM---prompt[mask]  与PKG">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-02T18:43:11.000Z">
-<meta property="article:modified_time" content="2023-09-08T08:33:01.682Z">
+<meta property="article:modified_time" content="2023-09-10T17:49:54.093Z">
 <meta property="article:author" content="stevenlyf">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          14 分钟
+          17 分钟
         
       </span>
     
@@ -295,6 +295,16 @@
 <p><strong>2019. Collaborative Policy Learning for Open Knowledge Graph Reasoning</strong></p>
 <p>辅助论文：</p>
 <p><strong>2020. How can we know what language models know?</strong></p>
+<p>https://blog.csdn.net/Seaern/article/details/128193379</p>
+<ul>
+<li>基于挖掘和基于释义的方法来自动生成高质量和多样化的提示</li>
+<li>和组合不同提示答案的集成方法</li>
+<li>在LAMA的基准上从31.1%-&gt;39.6%
+<ul>
+<li>该方法基于这样的观察，即大型语料库中主题x和对象y附近的单词通常描述关系r</li>
+<li>使用远程监督的假设来识别包含特定关系r的主语和宾语的所有维基百科句子</li>
+</ul></li>
+</ul>
 <p>textual pattern mining是出现在PLM之前的信息提取技术</p>
 <p><strong>2017. MetaPAD: Meta pattern discovery from massive text corpora</strong></p>
 <p><strong>2018. TruePIE: Discovering reliable patterns in pattern-based information extraction</strong></p>
@@ -304,6 +314,10 @@
 <ul>
 <li>PLM的知识来源于prompt的质量；</li>
 <li>we are pioneers in using ==textual pattern mining== methods for ==LM prompt mining==.</li>
+<li>基于检索的方式，很好的规避LLLM幻觉现象
+<ul>
+<li>将其与外部文档进行一个检索，将检索的内容加入至外部文档中，根据最新的检索的内容和query的问题，重新组合传入大语言模型中。</li>
+</ul></li>
 </ul>
 <p>解释了一下原因：（语料来源相同，任务目标一致）</p>
 <ul>
@@ -330,10 +344,13 @@
 <li>MetaPAD (Jiang et al., 2017)
 <ul>
 <li>applies pattern quality function introducing several criteria of contextual features to estimate the reliability of a pattern.</li>
+<li></li>
+<li></li>
 </ul></li>
 <li>and TruePIE (Li et al., 2018)
 <ul>
 <li>filters the prompts that have low cosine ′ similarity with the positive samples (e.g., p 3 and ′ p m−1are filtered)</li>
+<li>传统的方法通常基于统计信息来学习文本模式的质量，如其长度、频率等，由于相关性和正确性之间存在很大的差距</li>
 </ul></li>
 </ul></li>
 <li>Support Information Retrieval
@@ -417,9 +434,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/04/CPKGC/" title="">
+                      <a href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/" title="关于ACL23KG">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">关于ACL23KG</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -427,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/" title="关于ACL23KG">
-                        <span class="hidden-mobile">关于ACL23KG</span>
+                      <a href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/" title="关于prompt">
+                        <span class="hidden-mobile">关于prompt</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
