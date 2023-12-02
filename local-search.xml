@@ -5,49 +5,10 @@
   
   <entry>
     <title></title>
-    <link href="/2023/09/26/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8Ek8s/"/>
-    <url>/2023/09/26/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8Ek8s/</url>
-    
-    <content type="html"><![CDATA[<p>1、如何进入docker容器</p><ul><li>第一种，<code>sudo docker attach 44fc0f0582d9</code> ，缺点是会窗口阻塞，不太适合生产环境</li><li>第二种，ssh，缺点是需要在docker安装ssh</li><li>第三章，1.3.X版本后，可以使用<code>sudo docker exec -it 775c7c9ee1e1 /bin/bash</code></li></ul><p>2、K8s的认识</p><ul><li>是一个容器编排系统</li><li>从创建应用，应用的部署，应用提供服务，扩容缩容，</li><li>pod才是k8s中可以创建和管理的最小单元，也是基本单元</li></ul>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2023/09/21/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/"/>
-    <url>/2023/09/21/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/</url>
-    
-    <content type="html"><![CDATA[<p>压测背景</p><ul><li>一般只有在基本功能测试验证完成后，系统趋于稳定的情况下，才会进行压力测试。</li></ul><p>压测目的</p><ul><li>当负载逐渐增加，观察系统各项性能指标的变化情况是否有异常</li><li>判断系统在高并发情况下是否会报错，进程是否会挂掉</li><li>粗略估计系统性能上限</li></ul><p>性能测试指标</p><ul><li>QPS<ul><li>一个页面涉及到多个请求，计入QPS</li></ul></li><li>TPS（吞吐率）<ul><li>对于一个页面的一次访问，形成一个 Tps</li></ul></li></ul><p>测试工具</p><p><strong>Apache JMeter</strong>：</p><p>优势：免费且开源，支持多种协议（HTTP、FTP、JDBC等），可模拟高并发负载，具有灵活的测试脚本编写和调试功能。</p><p>使用场景：适用于Web应用程序和Web服务的性能测试，支持复杂的测试场景和流程</p><p><strong>LoadRunner</strong>：</p><p>优势：功能强大且广泛使用，支持多种协议和技术，具有分布式测试能力，提供可视化的测试脚本录制和编辑工具。</p><p>使用场景：适用于复杂的企业级应用程序和系统的性能测试，支持大规模负载和复杂的测试场景。</p><p>Jmeter</p><ul><li>线程组<ul><li>线程组中的每一个线程都可以理解为相当于一个“虚拟用户”。</li><li>假如客户机没有足够的能力来模拟较重的负载 ，后续可以使用 JMeter分布式压力测试，通过一个JMeter的Master来远程控制多个JMeter的Salve完成测试。</li></ul></li><li>Ramp-Up，多少时间范围内启动所有线程。</li><li>循环次数，</li></ul><p>在并发测试的时候，建议不要一上来就搞超大规模的并发数测试，这个是非常不推荐的，目前大部分推荐的玩法是逐渐递增请求线程数的方式，来测试系统的性能，我们也叫他梯度测试。</p><p>【面试题】</p><p>3.jmeter如何进行压力测试？ 4.jmeter特性，jmeter参数配置。 5.性能测试的指标 6.jmeter，fiddler，charles（简历上写）分别用来做什么。</p><p>当面试官问及这些问题，他们可能希望了解你对这些工具和性能测试的深入了解。以下是对于每一个问题的建议回答：</p><ol type="1"><li><p>jmeter如何进行压力测试？</p><p>JMeter是一个开源的性能测试工具，主要用于对Web应用程序进行压力测试。进行压力测试的基本步骤如下：</p><ol type="1"><li>启动JMeter并创建一个新的测试计划。</li><li>在测试计划下添加线程组，设置想要的虚拟用户数、循环次数等。</li><li>在线程组下添加HTTP请求采样器，设置你要测试的URL。</li><li>添加必要的监听器，如“图形结果”，“摘要报告”等，以便查看和分析测试结果。</li><li>保存并运行测试计划。</li><li>在测试完成后，分析监听器中的结果来评估系统性能。</li></ol></li><li><p>jmeter特性，jmeter参数配置</p><ul><li><strong>JMeter特性</strong>：<ol type="1"><li>开源、跨平台。</li><li>通过GUI和非GUI模式运行。</li><li>可以模拟多线程或并发用户来模拟多用户负载。</li><li>提供多种监听器进行结果分析。</li><li>支持多种协议：HTTP, HTTPS, FTP, JDBC, JMS等。</li><li>允许进行分布式测试。</li><li>插件扩展性强。</li></ol></li><li><strong>JMeter参数配置</strong>：JMeter的配置参数非常多，但是常见的有：<ol type="1"><li>线程数：设置模拟的用户数量。</li><li>循环次数：每个用户执行的次数。</li><li>Ramp-up时间：达到目标用户数的时间。</li><li>启动和停止时间：定时启动或停止测试。</li></ol></li></ul></li><li><p><strong>性能测试的指标</strong>：</p><ol type="1"><li>响应时间：系统给出响应所需的时间。</li><li>吞吐量：单位时间内系统可以处理的请求/事务数量。</li><li>错误率：出现错误的请求与总请求之比。</li><li>并发用户数：在特定时间内同时访问系统的用户数。</li><li>CPU、内存、磁盘和网络的使用情况。</li></ol></li></ol><p>数据库数据的数量与压测</p><p>使用JMeter对某一服务进行压测时，与请求的服务器中数据库的数据量大小关系在某种程度上是有关的，但这种关系并不是直接的。以下是几个可能的影响因素和场景：</p><ol type="1"><li><strong>查询性能</strong>：如果你正在压测一个涉及==数据库查询==的服务，并且查询是根据数据库中的数据量进行的，那么数据量的大小很可能影响到查询的速度。例如，从一个含有百万记录的表中查询数据通常要比从只有几千记录的表中查询数据慢。</li><li><strong>索引和数据库优化</strong>：在大型数据库中，如果数据没有被==正确地索引==或优化，查询性能可能会受到严重影响，这在压力测试中会显现出来。</li><li><strong>写入性能</strong>：如果你的测试包括向数据库写入数据，大量的数据可能会影响写入的速度，特别是当==存在大量的数据完整性检查==或触发器时。</li><li><strong>硬件和资源限制</strong>：当数据库非常大时，它可能会占用更多的硬盘空间和内存。如果硬件资源（如RAM、CPU、磁盘速度等）有限，大量的数据库操作可能会使服务器受到压力，从而影响性能。</li><li><strong>缓存效应</strong>：大多数现代数据库系统都有某种形式的==查询缓存机制==。在初次查询时，可能会因为数据尚未缓存而比较慢。但随后的同样的查询可能就会更快了。因此，数据量以及数据的访问模式都可能影响缓存的效果和性能表现。</li><li><strong>并发性</strong>：如果多个用户或线程同时进行大量的数据库操作，大数据量可能会增加==锁定冲突==和其他并发问题的风险。</li></ol><p>总之，当使用JMeter对涉及数据库的服务进行压力测试时，确实需要考虑数据库中的数据量大小。但更为关键的是，你应当理解测试背后的业务场景和工作负载，确保测试的设置和场景可以真实地反映预期的生产环境负载和用户行为。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
     <link href="/2023/09/04/CPKGC/"/>
     <url>/2023/09/04/CPKGC/</url>
     
     <content type="html"><![CDATA[<h3 id="思考">思考</h3><h4 id="从prompt说起">从prompt说起</h4><p>现有的PLM+KG，如何从PLM高效的抽取知识</p><h4 id="从图结构说起">从图结构说起</h4><p>现在有的PLM+KG重点过于关注文本信息，而忽略了图结构</p><p>离散的使用作为prompt</p><ul><li>将邻居三元组选择并加上描述信息拼接作为prompt</li></ul><p>连续的prompt</p><ul><li>使用transformer、R-GCN、消息传递网络聚合周围信息作为prompt</li></ul><p>方法1:直接使用</p><p>使用邻居实体的描述信息作为prompt</p><p>使用邻居实体的三元组作为prompt</p><p>方法2:挖掘</p><p>使用邻居实体的描述信息然后进行文本信息挖掘算法，挖掘出超出阈值的语句作为promt</p><p>同时添加该邻居三元组作为prompt</p><p><strong>图数据通常同时包含结构信息和节点特征信息</strong>，它们在不同的下游任务中发挥着不同的作用。<strong>例如，在社交网络中，节点特征对分类结果有很大的影响，而在蛋白质网络中，图的结构起着更重要的作用。</strong>因此，graph prompt应该同时考虑节点特征信息和结构信息，并能够自适应地转换。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>关于ACL23KG</title>
-    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/"/>
-    <url>/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/</url>
-    
-    <content type="html"><![CDATA[<p>【1】Are Message Passing Neural Networks Really Helpful for Knowledge Graph Completion?</p><p>消息传递模块并不重要，损失函数和得分函数是至关重要的</p><p>https://blog.csdn.net/cjw838982809/article/details/131850337</p><p>【】GreenKGC: A Lightweight Knowledge Graph Completion Method</p><p>相关性一般，研究低纬度的知识图谱补全</p><p>【】Compounding Geometric Operations for Knowledge Graph Completion</p><p>pairRE升级版</p><p>【】To Copy Rather Than Memorize: A Vertical Learning Paradigm for Knowledge Graph Completion</p><p>self-adv升级</p><p><strong>Finding</strong></p><p>【】Contrastive Learning with Generated Representations for Inductive Knowledge Graph Embedding</p><p>好复杂，OWA相关</p><p>【】Dipping PLMs Sauce: Bridging Structure and Text for Effective Knowledge Graph Completion via Conditional Soft Prompting</p><p>相关性高，不错不错，从文本和结构上面描述</p><p><strong>short</strong></p><h4 id="section"></h4>]]></content>
     
     
     
@@ -69,11 +30,11 @@
   
   
   <entry>
-    <title>关于prompt</title>
-    <link href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/"/>
-    <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
+    <title>关于ACL23KG</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8EACL23KG/</url>
     
-    <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p><p>MPNN-based KGC?</p><ul><li>CompGCN/CompGCN-MLP</li><li>RGCN/RGCN-MLP</li><li>KBGAT/KBGAT-MLP</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>【1】Are Message Passing Neural Networks Really Helpful for Knowledge Graph Completion?</p><p>消息传递模块并不重要，损失函数和得分函数是至关重要的</p><p>https://blog.csdn.net/cjw838982809/article/details/131850337</p><p>【】GreenKGC: A Lightweight Knowledge Graph Completion Method</p><p>相关性一般，研究低纬度的知识图谱补全</p><p>【】Compounding Geometric Operations for Knowledge Graph Completion</p><p>pairRE升级版</p><p>【】To Copy Rather Than Memorize: A Vertical Learning Paradigm for Knowledge Graph Completion</p><p>self-adv升级</p><p><strong>Finding</strong></p><p>【】Contrastive Learning with Generated Representations for Inductive Knowledge Graph Embedding</p><p>好复杂，OWA相关</p><p>【】Dipping PLMs Sauce: Bridging Structure and Text for Effective Knowledge Graph Completion via Conditional Soft Prompting</p><p>相关性高，不错不错，从文本和结构上面描述</p><p><strong>short</strong></p><h4 id="section"></h4>]]></content>
     
     
     
@@ -95,11 +56,50 @@
   
   
   <entry>
+    <title>关于prompt</title>
+    <link href="/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/"/>
+    <url>/2023/09/03/%E5%85%B3%E4%BA%8Eprompt/</url>
+    
+    <content type="html"><![CDATA[<p>graph与prompt</p><ul><li>PLM之前<ul><li>子图，可以进行类似于prompt</li></ul></li><li>PLM之后<ul><li>把子图抽成prompt</li></ul></li></ul><p>owa语料支撑</p><p>MPNN-based KGC?</p><ul><li>CompGCN/CompGCN-MLP</li><li>RGCN/RGCN-MLP</li><li>KBGAT/KBGAT-MLP</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>关于线程池</title>
     <link href="/2023/06/23/%E5%85%B3%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     <url>/2023/06/23/%E5%85%B3%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
     
     <content type="html"><![CDATA[<h2 id="为什么需要线程池">为什么需要线程池</h2><p>线程池的好处：</p><ul><li>降低资源消耗。重复利用已创建的线程降低线程创建和销毁造成的消耗。</li><li>提高响应速度。提高响应速度。</li><li>提高线程的可管理性。引入线程池，可以对线程进行统一的分配和监控。</li></ul><h2 id="线程池的原理">线程池的原理</h2><ul><li>核心线程池（存储线程）</li><li>工作队列（存储任务）<img src="https://raw.githubusercontent.com/stevenlyf428/picgo-picture/main/202306231619153.png" alt="image.png" style="zoom:25%;" /></li></ul><p>当提交一个新任务到线程池中，线程处理流程分为以下三步：</p><ol type="1"><li>判断核心线程池是否已满？</li><li>判断工作队列是否已满？</li><li>判断线程池是否已满？</li></ol><p>代码实例：</p><ul><li>Execuotr和Executors</li><li>==ThreadPoolExecutor==（核心）</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">public</span> <span class="hljs-title function_">ThreadPoolExecutor</span> <span class="hljs-params">(<span class="hljs-type">int</span> corePoolSize, <span class="hljs-type">int</span> maximumPoolSize,<span class="hljs-type">long</span> keepAliveTime, //核心线程数，最大线程数，最大线程数</span><br><span class="hljs-params">TimeUnit unit, </span><br><span class="hljs-params">                           BlockingQueue&lt;Runnable&gt; workQueue,</span><br><span class="hljs-params">                           ThreadFactory threadFactory,</span><br><span class="hljs-params">                           RejectedExecutionHandler handler)</span> <span class="hljs-comment">//拒绝策略</span><br>  <span class="hljs-comment">//1、（默认）拒绝并抛出异常</span><br>  <span class="hljs-comment">//2、使用当前线程来自新任务</span><br>  <span class="hljs-comment">//3、抛弃一个队头并执行当前任务</span><br>  <span class="hljs-comment">//4、忽略并抛弃当前任务</span><br></code></pre></td></tr></table></figure><p>其中，Executors就是对ThreadPoolExector的封装，比如有FixedThreadPool 和 SingleThreadPool，但通常企业里并没有使用，因为<strong>参数设置的不合理</strong>，比如，<strong>允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM</strong>。</p><h2 id="如何合理配置线程池的参数">如何合理配置线程池的参数</h2><p>这三个参数：<strong>corePoolSize</strong> 核心线程数、<strong>maximumPoolSize</strong> 最大线程数和 <strong>workQueue</strong> 阻塞队列，就是我们在创建线程池时应该关注的重点。</p><p>一般没有正确答案，要看场景，一般这么几个分类：</p><p>按照CPU密集和IO密集来分：</p><ul><li><p>对于CPU密集型，一般核心线程数设置成 (CPU 个数 + 1) 。不过现在都是超线程技术，可以CPU*2。</p></li><li><p>对于IO密集型，一般核心线程数应该配置尽可能多的核心线程数，比如当前 CPU 个数的两倍。具体情况可以按照处理时间和io时间来计算，</p></li></ul><p>按照应用场景来分：</p><ul><li><p>线上 - 响应速度优先：可以不设置缓冲队列，调高corePoolSize和maxPoolSize快速执行任务。</p></li><li><p>线下 - 吞吐量优先：相比响应速度优先，此时更追求的是资源的利用率，在单位时间有限的资源处理更多的任务，需要设置缓冲队列和调整合适的corePoolSize。</p></li></ul><p>此外，当设置了不合理的参数，会出现以下场景，我们可以根据现象去调整参数。</p><ul><li>maximumPoolSize 设置偏小，workQueue 大小设置偏小，导致拒绝策略频繁被调用；</li><li>maximumPoolSize 设置偏小，workQueue 大小设置过大，导致很多的任务都被堆积起来，相应的，接口的响应时间就会变长；</li><li>maximumPoolSize 设置过大，导致线程上下文切换频繁发生，处理速度反而下降。</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>压测背景</title>
+    <link href="/2023/06/03/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/"/>
+    <url>/2023/06/03/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8EJmeter%E5%8E%8B%E6%B5%8B/</url>
+    
+    <content type="html"><![CDATA[<ul><li>一般只有在基本功能测试验证完成后，系统趋于稳定的情况下，才会进行压力测试。</li></ul><p>压测目的</p><ul><li>当负载逐渐增加，观察系统各项性能指标的变化情况是否有异常</li><li>判断系统在高并发情况下是否会报错，进程是否会挂掉</li><li>粗略估计系统性能上限</li></ul><p>性能测试指标</p><ul><li>QPS<ul><li>一个页面涉及到多个请求，计入QPS</li></ul></li><li>TPS（吞吐率）<ul><li>对于一个页面的一次访问，形成一个 Tps</li></ul></li></ul><p>测试工具</p><p><strong>Apache JMeter</strong>：</p><p>优势：免费且开源，支持多种协议（HTTP、FTP、JDBC等），可模拟高并发负载，具有灵活的测试脚本编写和调试功能。</p><p>使用场景：适用于Web应用程序和Web服务的性能测试，支持复杂的测试场景和流程</p><p><strong>LoadRunner</strong>：</p><p>优势：功能强大且广泛使用，支持多种协议和技术，具有分布式测试能力，提供可视化的测试脚本录制和编辑工具。</p><p>使用场景：适用于复杂的企业级应用程序和系统的性能测试，支持大规模负载和复杂的测试场景。</p><p>Jmeter</p><ul><li>线程组<ul><li>线程组中的每一个线程都可以理解为相当于一个“虚拟用户”。</li><li>假如客户机没有足够的能力来模拟较重的负载 ，后续可以使用 JMeter分布式压力测试，通过一个JMeter的Master来远程控制多个JMeter的Salve完成测试。</li></ul></li><li>Ramp-Up，多少时间范围内启动所有线程。</li><li>循环次数，</li></ul><p>在并发测试的时候，建议不要一上来就搞超大规模的并发数测试，这个是非常不推荐的，目前大部分推荐的玩法是逐渐递增请求线程数的方式，来测试系统的性能，我们也叫他梯度测试。</p><p>【面试题】</p><p>3.jmeter如何进行压力测试？ 4.jmeter特性，jmeter参数配置。 5.性能测试的指标 6.jmeter，fiddler，charles（简历上写）分别用来做什么。</p><p>当面试官问及这些问题，他们可能希望了解你对这些工具和性能测试的深入了解。以下是对于每一个问题的建议回答：</p><ol type="1"><li><p>jmeter如何进行压力测试？</p><p>JMeter是一个开源的性能测试工具，主要用于对Web应用程序进行压力测试。进行压力测试的基本步骤如下：</p><ol type="1"><li>启动JMeter并创建一个新的测试计划。</li><li>在测试计划下添加线程组，设置想要的虚拟用户数、循环次数等。</li><li>在线程组下添加HTTP请求采样器，设置你要测试的URL。</li><li>添加必要的监听器，如“图形结果”，“摘要报告”等，以便查看和分析测试结果。</li><li>保存并运行测试计划。</li><li>在测试完成后，分析监听器中的结果来评估系统性能。</li></ol></li><li><p>jmeter特性，jmeter参数配置</p><ul><li><strong>JMeter特性</strong>：<ol type="1"><li>开源、跨平台。</li><li>通过GUI和非GUI模式运行。</li><li>可以模拟多线程或并发用户来模拟多用户负载。</li><li>提供多种监听器进行结果分析。</li><li>支持多种协议：HTTP, HTTPS, FTP, JDBC, JMS等。</li><li>允许进行分布式测试。</li><li>插件扩展性强。</li></ol></li><li><strong>JMeter参数配置</strong>：JMeter的配置参数非常多，但是常见的有：<ol type="1"><li>线程数：设置模拟的用户数量。</li><li>循环次数：每个用户执行的次数。</li><li>Ramp-up时间：达到目标用户数的时间。</li><li>启动和停止时间：定时启动或停止测试。</li></ol></li></ul></li><li><p><strong>性能测试的指标</strong>：</p><ol type="1"><li>响应时间：系统给出响应所需的时间。</li><li>吞吐量：单位时间内系统可以处理的请求/事务数量。</li><li>错误率：出现错误的请求与总请求之比。</li><li>并发用户数：在特定时间内同时访问系统的用户数。</li><li>CPU、内存、磁盘和网络的使用情况。</li></ol></li></ol><p>数据库数据的数量与压测</p><p>使用JMeter对某一服务进行压测时，与请求的服务器中数据库的数据量大小关系在某种程度上是有关的，但这种关系并不是直接的。以下是几个可能的影响因素和场景：</p><ol type="1"><li><strong>查询性能</strong>：如果你正在压测一个涉及==数据库查询==的服务，并且查询是根据数据库中的数据量进行的，那么数据量的大小很可能影响到查询的速度。例如，从一个含有百万记录的表中查询数据通常要比从只有几千记录的表中查询数据慢。</li><li><strong>索引和数据库优化</strong>：在大型数据库中，如果数据没有被==正确地索引==或优化，查询性能可能会受到严重影响，这在压力测试中会显现出来。</li><li><strong>写入性能</strong>：如果你的测试包括向数据库写入数据，大量的数据可能会影响写入的速度，特别是当==存在大量的数据完整性检查==或触发器时。</li><li><strong>硬件和资源限制</strong>：当数据库非常大时，它可能会占用更多的硬盘空间和内存。如果硬件资源（如RAM、CPU、磁盘速度等）有限，大量的数据库操作可能会使服务器受到压力，从而影响性能。</li><li><strong>缓存效应</strong>：大多数现代数据库系统都有某种形式的==查询缓存机制==。在初次查询时，可能会因为数据尚未缓存而比较慢。但随后的同样的查询可能就会更快了。因此，数据量以及数据的访问模式都可能影响缓存的效果和性能表现。</li><li><strong>并发性</strong>：如果多个用户或线程同时进行大量的数据库操作，大数据量可能会增加==锁定冲突==和其他并发问题的风险。</li></ol><p>总之，当使用JMeter对涉及数据库的服务进行压力测试时，确实需要考虑数据库中的数据量大小。但更为关键的是，你应当理解测试背后的业务场景和工作负载，确保测试的设置和场景可以真实地反映预期的生产环境负载和用户行为。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于k8s</title>
+    <link href="/2023/06/03/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8Ek8s/"/>
+    <url>/2023/06/03/%E6%B5%8B%E5%BC%80%E9%A1%B9%E7%9B%AE/%E5%85%B3%E4%BA%8Ek8s/</url>
+    
+    <content type="html"><![CDATA[<p>1、如何进入docker容器</p><ul><li>第一种，<code>sudo docker attach 44fc0f0582d9</code> ，缺点是会窗口阻塞，不太适合生产环境</li><li>第二种，ssh，缺点是需要在docker安装ssh</li><li>第三章，1.3.X版本后，可以使用<code>sudo docker exec -it 775c7c9ee1e1 /bin/bash</code></li></ul><p>2、K8s的认识</p><ul><li>是一个容器编排系统</li><li>从创建应用，应用的部署，应用提供服务，扩容缩容，</li><li>pod才是k8s中可以创建和管理的最小单元，也是基本单元</li></ul>]]></content>
     
     
     
